@@ -1,0 +1,41 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+.container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card{
+  margin: 2rem;
+  width: 17%;
+  height: 20%;
+  margin-bottom: 3.3rem;
+  overflow: hidden;
+  border: 1px solid #ddd;
+  background-color: white;
+  border-radius: 7px;
+}
+
+.cardImage{
+  height: 75%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.cardDetails{
+  margin-left: 1rem;
+}
+
+.cardTitle{
+  font-size: 16px;
+}
+
+
+
+
+
+
+
