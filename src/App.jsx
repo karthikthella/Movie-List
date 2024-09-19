@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -22,21 +22,24 @@ function App() {
 
   fetchMovies();
 
-  const filter_movies = (input) => {
-    setSearchText(input);
-    let search = input.toLowerCase();
-      const filtered = data.filter(movie = () =>
-        movie.title.toLowerCase().includes(search)
-      )
-      setFilterMovies(filtered);
-  }
+  useEffect(() => {
+    const filter_movies = () => {
+      console.log(searchText);
+        const filtered = data.filter((movie) =>
+          movie.title.toLowerCase().includes(searchText.toLowerCase())
+        )
+        setFilterMovies(filtered);
+        console.log(filtered);
+    }
+    filter_movies();
+  }, [searchText, data]);
 
 
   
   return (
     <>
       <h1>Movie List</h1>
-      <SearchBar searchInput={searchText} filter_movies={filter_movies}/>
+      <SearchBar setSearchText={setSearchText} />
       <MovieCards movies={filterMovies} />
     </>
   )
